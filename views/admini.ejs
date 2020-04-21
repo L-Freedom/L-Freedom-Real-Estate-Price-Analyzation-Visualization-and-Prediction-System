@@ -1,0 +1,25 @@
+﻿<form method="get" action="/getallu" class="well form-inline center" style="text-align:center;">
+<button type="submit" class="btn btn-success"><i class="icon-comment icon-white">
+</i>查询用户</button>
+</form>
+<form method="post" action="/delu" class="well form-inline center" style="text-align:center;">
+<input type="text" class="span8" id="username" name="username">
+<button type="submit" class="btn btn-success"><i class="icon-comment icon-white">
+</i>删除用户</button>
+</form>
+<% if(queryu) { %>
+<% users.forEach(function(user, index) { 
+  if (index % 3 == 0) { %>
+    <div class="row">
+<%} %>
+  <div class="span4">
+    <p><h6>用户名  </h6><%= user.name %></p>
+  </div>
+<% if (index % 3 == 2) { %>
+    </div><!-- end row -->
+<% } %>
+<%}) %>
+<% if (users.length % 3 != 0) { %>
+  </div><!-- end row -->
+<%} %>
+<% } %>
